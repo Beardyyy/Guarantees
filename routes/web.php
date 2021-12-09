@@ -1,6 +1,7 @@
 <?php
 
 
+use App\Http\Controllers\PostController;
 use App\Models\Category;
 use App\Models\Post;
 use App\Models\User;
@@ -10,32 +11,17 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::get('/posts', function () {
-
-    return view('posts', [
-        'posts' => Post::latest()->get()
-    ]);
-});
+Route::get('/posts', [PostController::class, 'index'])->name('home');
 
 
-
-
-
-Route::get('posts/{post}', function (Post $post) {
-
-    return view('post-page', [
-        'post' => $post
-    ]);
-});
-
-
-
+Route::get('posts/{post}', [PostController::class, 'show']);
 
 
 Route::get('category/{category}', function (Category $category) {
     //dd($category);
-    return view('category', [
-        'posts' => $category->posts
+    return view('posts', [
+        'posts' => $category->posts,
+        'categories' => Category::all()
     ]);
 });
 
@@ -47,6 +33,7 @@ Route::get('author/{author}', function (User $author) {
 
     //dd($author);
     return view('author', [
-        'posts' => $author->posts
+        'posts' => $author->posts,
+        'categories' => Category::all()
     ]);
 });
