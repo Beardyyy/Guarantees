@@ -18,7 +18,7 @@ Route::get('posts/{post}', [PostController::class, 'show']);
 
 
 Route::get('category/{category}', function (Category $category) {
-    //dd($category);
+
     return view('posts', [
         'posts' => $category->posts,
         'categories' => Category::all()

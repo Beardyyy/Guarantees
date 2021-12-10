@@ -16,13 +16,16 @@ class Post extends Model
     protected $fillable = ['slug', 'title', 'excerpt', 'body'];
 
 
-    public function scopeFilter($query)
+    public function scopeFilter($query, array $filter)
     {
-        if (request('search')) {
+
+        $query->when($filter['search'] ?? false, function ($query, $search)
+        {
             $query
-                ->where('title', 'like', '%' . request('search',) . '%')
-                ->orWhere('body', 'like', '%' . request('search',) . '%');
-        }
+                ->where('title', 'like', '%' . $search . '%')
+                ->orWhere('body', 'like', '%' . $search . '%');
+        });
+
     }
 
 
