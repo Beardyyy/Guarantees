@@ -12,7 +12,7 @@
             <header class="mt-8 lg:mt-0">
                 <div class="space-x-2">
 
-                    <a href="category/{{ $post->category->slug }}"
+                    <a href="/?category={{ $post->category->slug }}"
                        class="px-3 py-1 border border-blue-300 rounded-full text-blue-300 text-xs uppercase font-semibold"
                        style="font-size: 10px">{{ $post->category->name }}</a>
 
@@ -44,7 +44,7 @@
                 <div class="flex items-center text-sm">
                     <img src="/images/lary-avatar.svg" alt="Lary avatar">
                     <div class="ml-3">
-                        <h5 class="font-bold"><a href="/author/{{ $post->author->id }}">{{ $post->author->name }}</a></h5>
+                        <h5 class="font-bold"><a href="/?author={{ $post->author->id }}">{{ $post->author->name }}</a></h5>
                         <h6>Mascot at Laracasts</h6>
                     </div>
                 </div>

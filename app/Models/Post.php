@@ -40,6 +40,14 @@ class Post extends Model
             $query->where('slug', $category));
         });
 
+
+        $query->when($filter['author'] ?? false, function ($query, $author)
+        {
+
+            $query->whereHas('author', fn($query) =>
+            $query->where('id', $author));
+        });
+
     }
 
 
