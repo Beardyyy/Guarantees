@@ -20,7 +20,7 @@
 
         <div x-show="show" class="py-2 absolute bg-gray-100 w-full mt-2 rounded-xl" style="display:none">
             @foreach ($categories as $category)
-                <a href="/?category={{ $category->slug }}" class="block text-left px-3 text-sm leading-5 hover:bg-blue-500 focus:bg-blue-500 hover:text-white focus:text-white">
+                <a href="/?category={{ $category->slug }}&{{ http_build_query(request()->except('category')) }}" class="block text-left px-3 text-sm leading-5 hover:bg-blue-500 focus:bg-blue-500 hover:text-white focus:text-white">
                     {{ ucwords($category->name) }}
                 </a>
             @endforeach
