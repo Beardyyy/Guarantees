@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class RegisterController extends Controller
 {
+
 
 
     public function create()
@@ -14,8 +16,23 @@ class RegisterController extends Controller
     }
 
 
+
     public function store()
     {
-        // Creating the user
+      $attributes = request()->validate([
+
+            'name' => 'required|max:255|unique:users,name',
+            'email' => 'required|email|max:255|unique:users,email',
+            'password' => 'required|min:6|max:20'
+        ]);
+
+
+        $user = User::create($attributes);
+
+        auth()->login($user);
+
+        session()->flash('success', 'Your account has been created successfully');
+
+        return redirect('/');
     }
 }
