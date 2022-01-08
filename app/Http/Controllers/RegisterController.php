@@ -10,10 +10,12 @@ class RegisterController extends Controller
 
 
 
+
     public function create()
     {
         return view('register.create');
     }
+
 
 
 
@@ -25,6 +27,7 @@ class RegisterController extends Controller
             'email' => 'required|email|max:255|unique:users,email',
             'password' => 'required|min:6|max:20'
         ]);
+
 
 
         $user = User::create($attributes);

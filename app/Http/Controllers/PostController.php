@@ -31,3 +31,6 @@ class PostController extends Controller
         ]);
     }
 }
+
+
+//  7 methods rule ====  index, show, create, store, edit, update, destroy
