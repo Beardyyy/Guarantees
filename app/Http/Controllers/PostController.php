@@ -13,6 +13,7 @@ class PostController extends Controller
 
 
 
+
     public function index()
     {
 
@@ -20,6 +21,7 @@ class PostController extends Controller
             'posts' => Post::latest()->filter(request(['search', 'category', 'author']))->paginate(3)->withQueryString()
         ]);
     }
+
 
 
 
@@ -34,6 +36,7 @@ class PostController extends Controller
 
 
 
+
     public function create()
     {
 
@@ -42,11 +45,9 @@ class PostController extends Controller
 
 
 
+
     public function store()
     {
-
-       // $path  = request()->file('image')->store('slike');
-
 
 
         $attributes = request()->validate([
@@ -57,6 +58,7 @@ class PostController extends Controller
             'body' => 'required',
             'category_id' => ['required', Rule::exists('categories', 'id')]
         ]);
+
 
         $attributes['user_id'] = auth()->id();
         $attributes['thumbnail'] = request()->file('thumbnail')->store('thumbnail', 'public');
