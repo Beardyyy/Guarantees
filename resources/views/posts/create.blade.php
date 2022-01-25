@@ -21,9 +21,9 @@
             </div>
 
             <div class="mb-6">
-                <label class="block mb-2 uppercase font-bold text-xs text-gray-700" for="image">Image</label>
-                <input class="border border-gray-400 rounded p-2 w-full" name="image" type="file" id="image" required>
-                @error('image')
+                <label class="block mb-2 uppercase font-bold text-xs text-gray-700" for="thumbnail">Thumbnail</label>
+                <input class="border border-gray-400 rounded p-2 w-full" name="thumbnail" type="file" id="thumbnail" required>
+                @error('thumbnail')
                 <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                 @enderror
             </div>

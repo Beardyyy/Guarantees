@@ -15,7 +15,7 @@ class Post extends Model
 
     protected $with = ['category', 'author'];
 
-    protected $fillable = ['category_id', 'user_id','slug', 'title', 'excerpt', 'body'];
+    protected $fillable = ['category_id', 'user_id','slug', 'title','thumbnail', 'excerpt', 'body'];
 
 
 
