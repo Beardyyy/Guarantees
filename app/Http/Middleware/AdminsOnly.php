@@ -23,7 +23,7 @@ class AdminsOnly
         }
 
 
-        if(auth()->user()->name !== "Batman")
+        if(auth()->user()->name !== "Chef")
         {
             abort(403);
         }
