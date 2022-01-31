@@ -19,10 +19,12 @@ Route::get('posts/{post}', [PostController::class, 'show']);
 Route::post('posts/{post}/comment', [CommentController::class, 'store'])->middleware('auth');
 
 
-Route::get('admin/posts/{post}/edit', [AdminPostController::class, 'edit'])->middleware('admin');
+Route::get('admin/posts/dashboard', [AdminPostController::class, 'show'])->middleware('admin');
 Route::get('admin/posts/create', [AdminPostController::class, 'create'])->middleware('admin');
 Route::post('admin/post', [AdminPostController::class, 'store'])->middleware('admin');
-Route::get('admin/posts/dashboard', [AdminPostController::class, 'show'])->middleware('admin');
+Route::get('admin/posts/{post}/edit', [AdminPostController::class, 'edit'])->middleware('admin');
+Route::patch('admin/posts/{post}', [AdminPostController::class, 'update'])->middleware('admin')->name('update');
+
 
 
 Route::get('/register', [RegisterController::class, 'create'])->middleware('guest');

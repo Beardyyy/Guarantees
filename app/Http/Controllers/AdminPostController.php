@@ -64,4 +64,30 @@ class AdminPostController extends Controller
 
         ]);
     }
+
+
+    public function update(Post $post)
+    {
+
+        $attributes = request()->validate([
+            'title' => 'required',
+            'thumbnail' => 'image',
+            'slug' => ['required', Rule::unique('posts', 'slug')->ignore($post->id)],
+            'excerpt' => 'required',
+            'body' => 'required',
+            'category_id' => ['required', Rule::exists('categories', 'id')]
+        ]);
+
+        ddd($attributes);
+        if($attributes('thumbnail') !== null)
+        {
+            $attributes['thumbnail'] = request()->file('thumbnail')->store('thumbnail', 'public');
+        }
+
+        $post->update($attributes);
+
+        session()->flash('success', 'Successfully updated!!!');
+
+        return redirect('/admin/posts/'. $post->slug .'/edit');
+    }
 }
