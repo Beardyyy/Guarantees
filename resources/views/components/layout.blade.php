@@ -18,9 +18,9 @@
         <div class="mt-8 md:mt-0 flex items-center">
 
             @guest
-            <a href="/register" class="ml-3 rounded-full text-xs text-blue-500 font-bold font-semibold uppercase py-3 px-5">
-               Register
-            </a>
+                <a href="/register" class="ml-3 rounded-full text-xs text-blue-500 font-bold font-semibold uppercase py-3 px-5">
+                    Register
+                </a>
                 <a href="/login" class="ml-3 rounded-full text-xs text-blue-500 font-bold font-semibold uppercase py-3 px-5">
                     Login
                 </a>

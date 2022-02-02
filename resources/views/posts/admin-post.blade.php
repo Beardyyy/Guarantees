@@ -16,17 +16,8 @@
                        <a href="/admin/posts/create"> New post</a>
                     </button>
                 </div>
-                <div class="mb-2">
-                    <button type="submit" class="bg-blue-500 rounded text-white py-2 px-4 hover:bg-blue-600">
-                        Edit
-                    </button>
-                </div>
-
             </div>
 
-
-
-            <!-- This example requires Tailwind CSS v2.0+ -->
             <div class="col-span-3">
                 @foreach($posts as $post)
 
@@ -66,13 +57,17 @@
                                         </div>
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="text-sm text-gray-900">{{ $post->title }}</div>
+                                        <div class="text-sm text-gray-900"><a href="/posts/{{ $post->slug }}">{{ $post->title }}</a></div>
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                         <a href="/admin/posts/{{ $post->slug }}/edit" class="text-indigo-600 hover:text-indigo-900">Edit</a>
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-right text-sm text-red font-medium">
-                                        <a href="#" class="text-indigo-600 text-red hover:text-indigo-900">Delete</a>
+                                        <form method="post" action="/admin/posts/{{ $post->slug }}">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button class="text-sm text-red-500">Delete</button>
+                                        </form>
                                     </td>
                                 </tr>
 

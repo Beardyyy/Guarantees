@@ -78,7 +78,7 @@ class AdminPostController extends Controller
             'category_id' => ['required', Rule::exists('categories', 'id')]
         ]);
 
-        ddd($attributes);
+
         if($attributes('thumbnail') !== null)
         {
             $attributes['thumbnail'] = request()->file('thumbnail')->store('thumbnail', 'public');
@@ -87,7 +87,17 @@ class AdminPostController extends Controller
         $post->update($attributes);
 
         session()->flash('success', 'Successfully updated!!!');
-
         return redirect('/admin/posts/'. $post->slug .'/edit');
+    }
+
+
+
+    public function destroy(Post $post)
+    {
+
+        $post->delete();
+
+        session()->flash('success', 'Post deleted!!!');
+        return redirect('/admin/posts/dashboard');
     }
 }
