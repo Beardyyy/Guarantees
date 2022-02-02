@@ -79,7 +79,7 @@ class AdminPostController extends Controller
         ]);
 
 
-        if($attributes('thumbnail') !== null)
+        if(isset($attributes['thumbnail']))
         {
             $attributes['thumbnail'] = request()->file('thumbnail')->store('thumbnail', 'public');
         }

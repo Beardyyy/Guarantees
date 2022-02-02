@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class CategoryController extends Controller
 {
@@ -19,5 +20,33 @@ class CategoryController extends Controller
             'categories' => Category::all()
 
         ]);
+    }
+
+
+
+    public function create()
+    {
+
+        return view('category.category-create');
+    }
+
+
+
+    public function store()
+    {
+
+
+        $attributes = request()->validate([
+
+            'slug' => ['required', Rule::unique('categories', 'slug')],
+            'name' => ['required', Rule::unique('categories', 'name')],
+        ]);
+
+
+        Category::create($attributes);
+
+        session()->flash('success', 'Category created!!!');
+
+        return redirect('/admin/category/dashboard');
     }
 }
