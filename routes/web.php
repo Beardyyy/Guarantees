@@ -2,6 +2,7 @@
 
 
 use App\Http\Controllers\AdminPostController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\RegisterController;
@@ -25,6 +26,10 @@ Route::post('admin/post', [AdminPostController::class, 'store'])->middleware('ad
 Route::get('admin/posts/{post}/edit', [AdminPostController::class, 'edit'])->middleware('admin');
 Route::patch('admin/posts/{post}', [AdminPostController::class, 'update'])->middleware('admin')->name('update');
 Route::delete('admin/posts/{post}', [AdminPostController::class, 'destroy'])->middleware('admin');
+
+
+Route::get('admin/category/dashboard', [CategoryController::class, 'show'])->middleware('admin');
+
 
 
 
