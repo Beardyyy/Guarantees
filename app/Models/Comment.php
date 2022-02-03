@@ -26,4 +26,16 @@ class Comment extends Model
     {
         return $this->belongsTo(User::class, 'user_id');
     }
+
+
+    public function postSlug()
+    {
+        return $this->post->slug;
+    }
+
+
+    public function postId()
+    {
+        return $this->post->id;
+    }
 }
