@@ -33,6 +33,8 @@ Route::delete('admin/posts/{post}', [AdminPostController::class, 'destroy'])->mi
 Route::get('admin/category/dashboard', [CategoryController::class, 'show'])->middleware('admin');
 Route::get('admin/category/create', [CategoryController::class, 'create'])->middleware('admin');
 Route::post('admin/category', [CategoryController::class, 'store'])->middleware('admin');
+Route::delete('admin/category/{category}', [CategoryController::class, 'destroy'])->middleware('admin');
+
 
 
 

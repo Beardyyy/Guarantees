@@ -49,4 +49,14 @@ class CategoryController extends Controller
 
         return redirect('/admin/category/dashboard');
     }
+
+
+    public function destroy(Category $category)
+    {
+
+        $category->delete();
+
+        session()->flash('success', 'Category deleted!!!');
+        return redirect('/admin/category/dashboard');
+    }
 }

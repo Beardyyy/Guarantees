@@ -5,7 +5,7 @@
 
 
         <div class="border-b border-black-700 py-3">
-            <h1 class="font-bold text-xl">Posts dashboard</h1>
+            <h1 class="font-bold text-xl">Category dashboard</h1>
         </div>
 
         <div class="grid grid-cols-4 gap-4">
@@ -64,7 +64,7 @@
                                             <a href="/admin/posts//edit" class="text-indigo-600 hover:text-indigo-900">Edit</a>
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap text-right text-sm text-red font-medium">
-                                            <form method="post" action="/admin/posts/">
+                                            <form method="post" action="/admin/category/{{ $category->slug }}">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button class="text-sm text-red-500">Delete</button>

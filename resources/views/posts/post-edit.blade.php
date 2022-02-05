@@ -1,6 +1,6 @@
 <x-layout>
     <section class="px-6 py-8">
-        <h1 class=" text-xl font-bold text-center">Create a new post</h1>
+        <h1 class=" text-xl font-bold text-center">Update post: {{ $post->title }}</h1>
         <form action="/admin/posts/{{ $post->slug }}" method="POST" enctype="multipart/form-data" class="max-w-lg mx-auto mt-10 bg-gray-100 p-6 rounded-xl border border-gray-200">
             @csrf
             @method('PATCH')
