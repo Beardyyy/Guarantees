@@ -12,11 +12,6 @@
             <div class="">
                 <div class="mb-2">
                     <button type="submit" class="bg-blue-500 rounded text-white py-2 px-4 hover:bg-blue-600">
-                        <a href="/admin/category/dashboard">Categories</a>
-                    </button>
-                </div>
-                <div class="mb-2">
-                    <button type="submit" class="bg-blue-500 rounded text-white py-2 px-4 hover:bg-blue-600">
                         <a href="/admin/posts/create"> New post</a>
                     </button>
                 </div>
