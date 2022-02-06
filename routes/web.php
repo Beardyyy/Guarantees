@@ -7,6 +7,7 @@ use App\Http\Controllers\CommentController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -21,10 +22,9 @@ Route::post('posts/{post}/comment', [CommentController::class, 'store'])->middle
 Route::delete('posts/{comment}/comment', [CommentController::class, 'destroy'])->middleware('auth');
 
 
-
 Route::get('admin/posts/dashboard', [AdminPostController::class, 'show'])->middleware('admin');
-Route::get('admin/posts/create', [AdminPostController::class, 'create'])->middleware('admin');
-Route::post('admin/post', [AdminPostController::class, 'store'])->middleware('admin');
+Route::get('admin/posts/create', [AdminPostController::class, 'create'])->middleware('auth');
+Route::post('admin/post', [AdminPostController::class, 'store'])->middleware('auth');
 Route::get('admin/posts/{post}/edit', [AdminPostController::class, 'edit'])->middleware('admin');
 Route::patch('admin/posts/{post}', [AdminPostController::class, 'update'])->middleware('admin')->name('update');
 Route::delete('admin/posts/{post}', [AdminPostController::class, 'destroy'])->middleware('admin');
@@ -36,13 +36,15 @@ Route::post('admin/category', [CategoryController::class, 'store'])->middleware(
 Route::delete('admin/category/{category}', [CategoryController::class, 'destroy'])->middleware('admin');
 
 
-
-
 Route::get('/register', [RegisterController::class, 'create'])->middleware('guest');
 Route::post('/register', [RegisterController::class, 'store'])->middleware('guest');
 Route::get('/login', [SessionController::class, 'create'])->middleware('guest');
 Route::post('/login', [SessionController::class, 'store'])->middleware('guest');
 Route::post('/logout', [SessionController::class, 'destroy'])->middleware('auth');
+
+
+
+Route::get('user/posts/{user}/dashboard', [UserController::class, 'show'])->middleware('auth');
 
 
 
