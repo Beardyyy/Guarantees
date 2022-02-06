@@ -28,14 +28,6 @@ class Comment extends Model
     }
 
 
-    public function postSlug()
-    {
-        return $this->post->slug;
-    }
 
 
-    public function postId()
-    {
-        return $this->post->id;
-    }
 }

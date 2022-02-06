@@ -1,6 +1,6 @@
 @props(['post'])
 
-<form action="/posts/{{ $post->slug }}/comment" method="POST" class="bg-gray-50 border border-gray-200 p-6 rounded-xl">
+<form action="/posts/{{ $post->id }}/comment" method="POST" class="bg-gray-50 border border-gray-200 p-6 rounded-xl">
     @csrf
     <header class="flex items-center">
         <img src="https://i.pravatar.cc/40?u={{ auth()->id() }}" alt="avatar" class="rounded-xl">

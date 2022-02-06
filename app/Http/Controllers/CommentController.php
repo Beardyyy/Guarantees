@@ -31,19 +31,14 @@ class CommentController extends Controller
 
 
 
-    public function destroy(Post $post)
+    public function destroy(Comment $comment)
     {
 
-       // dd($post->comment->postId());
-        // Problem...
 
-        $comment = Comment::findOrFail($post->post->id);
-
-        dd($post->post->id);
 
         $comment->delete();
 
         session()->flash('success', 'Comment deleted!!!');
-        return redirect('/posts/' . $post->slug);
+        return redirect()->back();
     }
 }

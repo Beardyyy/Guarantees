@@ -18,7 +18,7 @@ Route::get('posts/{post}', [PostController::class, 'show']);
 
 
 Route::post('posts/{post}/comment', [CommentController::class, 'store'])->middleware('auth');
-Route::delete('posts/{post}/comment', [CommentController::class, 'destroy'])->middleware('auth');
+Route::delete('posts/{comment}/comment', [CommentController::class, 'destroy'])->middleware('auth');
 
 
 

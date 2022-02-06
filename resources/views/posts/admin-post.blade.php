@@ -61,13 +61,13 @@
                                         </div>
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="text-sm text-gray-900"><a href="/posts/{{ $post->slug }}">{{ $post->title }}</a></div>
+                                        <div class="text-sm text-gray-900"><a href="/posts/{{ $post->id }}">{{ $post->title }}</a></div>
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                        <a href="/admin/posts/{{ $post->slug }}/edit" class="text-indigo-600 hover:text-indigo-900">Edit</a>
+                                        <a href="/admin/posts/{{ $post->id }}/edit" class="text-indigo-600 hover:text-indigo-900">Edit</a>
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-right text-sm text-red font-medium">
-                                        <form method="post" action="/admin/posts/{{ $post->slug }}">
+                                        <form method="post" action="/admin/posts/{{ $post->id }}">
                                             @csrf
                                             @method('DELETE')
                                             <button class="text-sm text-red-500">Delete</button>

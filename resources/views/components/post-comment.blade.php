@@ -18,7 +18,7 @@
 
     @if($comment->user_id == auth()->id())
     <div class="">
-        <form action="/posts/{{ $comment->postSlug() }}/comment" method="post">
+        <form action="/posts/{{ $comment->id }}/comment" method="post">
             @csrf
             @method('DELETE')
         <button class="border rounded-full px-1 text-sm"> Delete</button>

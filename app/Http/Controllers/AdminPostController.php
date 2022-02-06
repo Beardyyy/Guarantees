@@ -87,7 +87,7 @@ class AdminPostController extends Controller
         $post->update($attributes);
 
         session()->flash('success', 'Successfully updated!!!');
-        return redirect('/admin/posts/'. $post->slug .'/edit');
+        return redirect('/admin/posts/'. $post->id .'/edit');
     }
 
 

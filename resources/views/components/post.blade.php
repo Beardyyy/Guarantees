@@ -16,7 +16,7 @@
                 </div>
 
                 <div class="mt-4">
-                    <a href="/posts/{{ $post->slug }}">
+                    <a href="/posts/{{ $post->id }}">
                         <h1 class="text-3xl">
                             {{ $post->title }}
                         </h1>
@@ -47,7 +47,7 @@
                 </div>
 
                 <div>
-                    <a href="posts/{{ $post->slug }}"
+                    <a href="posts/{{ $post->id }}"
                        class="transition-colors duration-300 text-xs font-semibold bg-gray-200 hover:bg-gray-300 rounded-full py-2 px-8"
                     >
                         Read More
