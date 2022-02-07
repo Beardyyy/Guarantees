@@ -43,7 +43,6 @@ Route::post('/login', [SessionController::class, 'store'])->middleware('guest');
 Route::post('/logout', [SessionController::class, 'destroy'])->middleware('auth');
 
 
-
 Route::get('user/posts/{user}/dashboard', [UserController::class, 'show'])->middleware('auth');
 
 
