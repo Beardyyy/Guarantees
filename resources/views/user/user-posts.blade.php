@@ -59,7 +59,7 @@
                                             <div class="text-sm text-gray-900"><a href="/posts/{{ $post->id }}">{{ $post->title }}</a></div>
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                            <a href="/admin/posts/{{ $post->id }}/edit" class="text-indigo-600 hover:text-indigo-900">Edit</a>
+                                            <a href="/user/posts/{{ $post->id }}/edit" class="text-indigo-600 hover:text-indigo-900">Edit</a>
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap text-right text-sm text-red font-medium">
                                             <form method="post" action="/admin/posts/{{ $post->id }}">

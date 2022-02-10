@@ -44,6 +44,8 @@ Route::post('/logout', [SessionController::class, 'destroy'])->middleware('auth'
 
 
 Route::get('user/posts/{user}/dashboard', [UserController::class, 'show'])->middleware('auth');
+Route::get('user/posts/{post}/edit', [UserController::class, 'edit'])->middleware('auth');
+Route::patch('user/posts/{post}', [UserController::class, 'update'])->middleware('auth');
 
 
 
