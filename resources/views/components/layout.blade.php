@@ -32,7 +32,7 @@
                 </form>
             @endguest
             @auth
-                @if(auth()->user()->id == 2)
+                @if(auth()->user()->id == 3)
             <a href="/admin/posts/dashboard" class="bg-blue-500 ml-3 rounded-full text-xs font-semibold text-white uppercase py-3 px-5">
                Admin Dashboard
             </a>
