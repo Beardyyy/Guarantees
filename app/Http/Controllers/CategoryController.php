@@ -35,7 +35,6 @@ class CategoryController extends Controller
     public function store()
     {
 
-
         $attributes = request()->validate([
 
             'slug' => ['required', Rule::unique('categories', 'slug')],
