@@ -15,6 +15,11 @@
                         <a href="/admin/posts/create"> New post</a>
                     </button>
                 </div>
+                <div class="mb-2">
+                    <button type="submit" class="bg-gray-100 rounded py-2 px-4 hover:bg-gray-200">
+                        <a href="/">Home</a>
+                    </button>
+                </div>
             </div>
 
             <div class="col-span-3">

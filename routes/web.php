@@ -8,6 +8,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\UserPostController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -43,9 +44,12 @@ Route::post('/login', [SessionController::class, 'store'])->middleware('guest');
 Route::post('/logout', [SessionController::class, 'destroy'])->middleware('auth');
 
 
-Route::get('user/posts/{user}/dashboard', [UserController::class, 'show'])->middleware('auth');
-Route::get('user/posts/{post}/edit', [UserController::class, 'edit'])->middleware('auth');
-Route::patch('user/posts/{post}', [UserController::class, 'update'])->middleware('auth');
+Route::get('user/posts/{user}/dashboard', [UserPostController::class, 'show'])->middleware('auth');
+Route::get('user/posts/{post}/edit', [UserPostController::class, 'edit'])->middleware('auth');
+Route::patch('user/posts/{post}', [UserPostController::class, 'update'])->middleware('auth');
+
+Route::get('user/{user}', [UserController::class, 'show'])->middleware('auth');
+
 
 
 

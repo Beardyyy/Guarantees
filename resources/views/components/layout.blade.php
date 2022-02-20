@@ -25,23 +25,33 @@
                     Login
                 </a>
             @else
-                <p class="font-bold">Welcome <a href="/user/posts/{{ auth()->user()->id }}/dashboard">{{ auth()->user()->name }}!</a></p>
-                <form method="POST" action="/logout">
-                    @csrf
-                    <button type="submit"class="bg-blue-500 ml-3 rounded-full text-xs font-semibold text-white uppercase py-3 px-5">Logout</button>
-                </form>
-            @endguest
-            @auth
-                @if(auth()->user()->id == 3)
-            <a href="/admin/posts/dashboard" class="bg-blue-500 ml-3 rounded-full text-xs font-semibold text-white uppercase py-3 px-5">
-               Admin Dashboard
-            </a>
-                    @else
-                        <a href="/user/posts/{{ auth()->user()->id }}/dashboard" class="bg-blue-500 ml-3 rounded-full text-xs font-semibold text-white uppercase py-3 px-5">
-                            Posts Dashboard
-                        </a>
+
+                <div x-data="{show:false}" @click.away="show = false" class="">
+                    <div @click="show = !show" class="relative">
+                        <button class="font-bold py-2 px-2 rounded-xl hover:bg-gray-100">Welcome, {{ auth()->user()->name }}!</button>
+                    </div>
+
+                    @if(auth()->user()->id == 3)
+                    <div x-show="show" class="py-2 relative text-center bg-gray-100 hover:bg-gray-200 mt-2 rounded-xl w-full z-50 overflow-auto max-h-52">
+                            <a href="/admin/posts/dashboard">Admin Dashboard</a>
+                    </div>
                     @endif
-            @endauth
+
+                    <div x-show="show" class="py-2 relative text-center bg-gray-100 hover:bg-gray-200 mt-2 rounded-xl w-full z-50 overflow-auto max-h-52">
+                        <a href="/user/posts/{{ auth()->user()->id }}/dashboard">Posts dashboard</a>
+                    </div>
+                    <div x-show="show" class="py-2 relative text-center bg-gray-100 hover:bg-gray-200 mt-2 rounded-xl w-full z-50 overflow-auto max-h-52">
+                        <a href="/user/{{ auth()->user()->id }}">Account</a>
+                    </div>
+                    <div  x-data="{}" @click.prevent="document.querySelector('#logout-form').submit()" class="py-2 text-center bg-gray-100 hover:bg-gray-200 mt-2 rounded-xl w-full z-50 overflow-auto max-h-52">
+                        <a href="#">Log out</a>
+                            <form id="logout-form" method="POST" action="/logout" class="hidden">
+                                @csrf
+                        </form>
+                    </div>
+                </div>
+
+            @endguest
         </div>
     </nav>
 
