@@ -48,7 +48,11 @@ Route::get('user/posts/{user}/dashboard', [UserPostController::class, 'show'])->
 Route::get('user/posts/{post}/edit', [UserPostController::class, 'edit'])->middleware('auth');
 Route::patch('user/posts/{post}', [UserPostController::class, 'update'])->middleware('auth');
 
-Route::get('user/{user}', [UserController::class, 'show'])->middleware('auth');
+Route::get('user/{user}', [UserController::class, 'edit'])->middleware('auth');
+Route::patch('user/{user}', [UserController::class, 'update'])->middleware('auth');
+Route::get('user/{user}/password',  [UserController::class, 'showPassword'])->middleware('auth');
+Route::post('user/{user}/password',  [UserController::class, 'changePassword'])->middleware('auth');
+
 
 
 
